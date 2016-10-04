@@ -4,10 +4,6 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.ComponentScan;
-//import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import javax.mail.Folder;
@@ -19,13 +15,10 @@ import javax.mail.Session;
 import com.example.config.ConfigReader;
 
 import com.sun.mail.pop3.POP3Store;
+import javax.mail.internet.MimeMultipart;
 
-//import lombok.Data;
 
-//@Data
-//@Configuration
 @Component
-//@PropertySource(value = {"application.yml"})
 public class ReceptionMail {
 	
 	
@@ -64,8 +57,12 @@ public class ReceptionMail {
 				System.out.println("Email Number " + msg.getMessageNumber());
 				System.out.println("Subject: " + msg.getSubject());
 				System.out.println("From: " + msg.getFrom()[0]);
-				System.out.println("Text: " + msg.getContent().toString());
 				System.out.println("Date: " + msg.getSentDate());
+
+				//System.out.println("Text: " + msg.getContent().toString());
+				MimeMultipart mmp = (MimeMultipart) msg.getContent();
+				System.out.println("Text: " + mmp.getBodyPart(0).getContent().toString());
+				
 			}
 		} catch (NoSuchProviderException e) {
 			e.printStackTrace();

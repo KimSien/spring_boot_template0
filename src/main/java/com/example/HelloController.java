@@ -50,7 +50,8 @@ public class HelloController {
         //@component use new is error
         // use Autowired
         //ReceptionMail receptionMail = new ReceptionMail();
-        receptionMail.recept();
+        // this
+        //receptionMail.recept();
         
         
         //pickup application.yml
