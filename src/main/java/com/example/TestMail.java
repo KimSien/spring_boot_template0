@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.example.config.Setting;
+import com.example.config.Settings;
 
 
 @Component
@@ -16,7 +16,7 @@ public class TestMail {
 	}
 	
 	@Autowired
-	private Setting setting;
+	private Settings setting;
 	
     public String getHost(){
         Map<String, String> map = setting.getMail();

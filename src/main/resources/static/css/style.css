@@ -3,3 +3,20 @@
 body{
 	padding:0px 10px !important;
 }
+
+.login-box{
+	width:80%;
+}
+
+.control-label{
+	text-align:right;
+}
+
+.centered{
+	text-align:center;
+}
+
+.form-group{
+	padding:10px;
+	clear:both;
+}
