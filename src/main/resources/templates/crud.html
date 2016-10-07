@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:substituteby="common/header :: common_link"/>
+</head>
+<body>
+    
+     <h1>Hello, world!</h1>
+
+
+<!-- Columns are always 50% wide, on mobile and desktop -->
+<div class="row">
+  <div class="col-xs-3">
+	  <div>
+	  <link th:substituteby="common/sidebar :: common_link2"/>
+	  </div>
+  </div>
+  
+  <div class="col-xs-9">
+  
+<form method="post" action="">
+  <p>Name:<input type="text" name="username"/></p>
+  <p>password:<input type="text" name="password"/></p>
+  <p>mail:<input type="text" name="mail"/></p>
+  <p>memo:<input type="text" name="memo"/></p>
+  
+  <p><input type="submit" value="Send"/></p>
+
+
+
+</form>
+
+
+	<p th:text="${values}"></p>
+  </div>
+</div>
+
+</body>
+<footer>
+<link th:substituteby="common/footer :: common_link3" />
+</footer>
+</html>
