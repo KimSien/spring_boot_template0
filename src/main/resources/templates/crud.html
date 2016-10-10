@@ -18,17 +18,55 @@
   
   <div class="col-xs-9">
   
+<div class="row">
 <form method="post" action="#" th:action="@{/crud}" th:object="${mybasedata}">
-  <p>Name:<input th:field="*{username}" type="text" name="username"/></p>
-  <p>password:<input th:field="*{password}" type="text" name="password"/></p>
-  <p>mail:<input th:field="*{mail}" type="text" name="mail"/></p>
-  <p>memo:<input th:field="*{memo}" type="text" name="memo"/></p>
-  
-  <p><button type="submit">send</button></p>
+<div class="form-group">
+	<label class="control-label col-sm-4" for="name">
+	Name
+	</label>
+	<div class="col-sm-8">
+	<input th:field="*{username}" type="text" name="username"/>
+	</div>
+</div>
+
+  <p th:if="${id != null}"><input th:field="*{id}" type="hidden" name="id"/></p>
+
+<div class="form-group">
+	<label class="control-label col-sm-4" for="password">
+	password
+	</label>
+	<div class="col-sm-8">
+	<input th:field="*{password}" type="text" name="password"/>
+	</div>
+</div>
 
 
+<div class="form-group">
+	<label class="control-label col-sm-4" for="mail">
+	mail
+	</label>
+	<div class="col-sm-8">
+	<input th:field="*{mail}" type="text" name="mail"/>
+	</div>
+</div>
+
+
+<div class="form-group">
+	<label class="control-label col-sm-4" for="memo">
+	memo
+	</label>
+	<div class="col-sm-8">
+	<input th:field="*{memo}" type="text" name="memo"/>
+	</div>
+</div>
+
+<div class="form-group">
+<button class="btn btn-primary" type="submit">send</button>
+</div>
 
 </form>
+</div>
+
 
 
 	<p th:text="${values}"></p>

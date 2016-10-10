@@ -4,9 +4,10 @@
 <link th:substituteby="common/header :: common_link"/>
 </head>
 <body>
-    
-     <h1>Hello, world!</h1>
 
+<div>
+<link th:substituteby="common/navi :: common_link5"/>
+</div>
 
 <!-- Columns are always 50% wide, on mobile and desktop -->
 <div class="row">
@@ -17,18 +18,24 @@
   </div>
   
   <div class="col-xs-9">
+ 
+<table class="table table-inverse"> 
+<tr th:each="mybasedata : ${mybasedatas}">
+  <td><a class="btn btn-default" th:href="@{'/crud/' + ${mybasedata.id}}">edit</a></td>
+
+  <td>
+  <a class="btn btn-warning" href="crud/delete/${mybasedata.id}" th:href="@{/crud/delete/{id}(id=${mybasedata.id})}">
+  delete
+  </a>
   
-<form method="post" action="#" th:action="@{/crud}" th:object="${mybasedata}">
-  <p>Name:<input th:field="*{username}" type="text" name="username"/></p>
-  <p>password:<input th:field="*{password}" type="text" name="password"/></p>
-  <p>mail:<input th:field="*{mail}" type="text" name="mail"/></p>
-  <p>memo:<input th:field="*{memo}" type="text" name="memo"/></p>
+  </td>
+    
+  <td th:text="${mybasedata.username}"> memo </td>
   
-  <p><button type="submit">send</button></p>
-
-
-
-</form>
+  <td th:text="${mybasedata.mail}"> memo </td>
+  <td th:text="${mybasedata.memo}"> memo </td>
+</tr>
+</table>
 
 
 	<p th:text="${values}"></p>

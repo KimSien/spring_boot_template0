@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:substituteby="common/header :: common_link"/>
+</head>
+<body>
+    
+     <h1>Hello, world!</h1>
+
+
+<!-- Columns are always 50% wide, on mobile and desktop -->
+<div class="row">
+  <div class="col-xs-3">
+	  <div>
+	  <link th:substituteby="common/sidebar :: common_link2"/>
+	  </div>
+  </div>
+  
+  <div class="col-xs-9">
+	
+	delete
+	
+  </div>
+</div>
+
+</body>
+<footer>
+<link th:substituteby="common/footer :: common_link3" />
+</footer>
+</html>
