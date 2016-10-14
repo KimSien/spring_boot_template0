@@ -70,12 +70,39 @@ public class CrudController{
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public String getMybasedata(Model model) {
         //return mybasedataService.find(id);
-    	model.addAttribute("mybasedatas", mybasedataService.findAll());
+    	//model.addAttribute("mybasedatas", mybasedataService.findAll());
         
-    	return "crud_view";
+    	return "redirect:/crud/all/0";
     }
-        
+     
     
+    @RequestMapping(value = "/all/{page}", method = RequestMethod.GET)
+    public String getMybasedataPage(@PathVariable("page") int pages,Model model) {
+        //return mybasedataService.find(id);
+    	model.addAttribute("mybasedatas", mybasedataService.findPage(3,pages));
+    	
+    	System.out.println(mybasedataService.findPage(3,pages));
+    	
+    	//count
+    	//you change after.jpql?
+    	long countbase = mybasedataService.findMax().size();
+    	//System.out.println(countbase);
+  
+    	//test serch
+       	//System.out.println(mybasedataService.findbyusername("test"));
+           	
+    	/*
+    	ArrayList<int> arcount = new ArrayList<int>();
+    	for(int i=0;i<coutbase;i++){
+    	}
+    	*/
+    	
+    	int pagecount = (int) Math.ceil(countbase/3);
+    	
+    	model.addAttribute("pagecount",pagecount);
+    	
+    	return "crud_view";
+    } 
     
     
     

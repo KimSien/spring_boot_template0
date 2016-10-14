@@ -26,8 +26,7 @@
   <td>
   <a class="btn btn-warning" href="crud/delete/${mybasedata.id}" th:href="@{/crud/delete/{id}(id=${mybasedata.id})}">
   delete
-  </a>
-  
+  </a>  
   </td>
     
   <td th:text="${mybasedata.username}"> memo </td>
@@ -37,10 +36,15 @@
 </tr>
 </table>
 
+	<div><link th:substituteby="common/paging :: common_link8"/></div>
 
 	<p th:text="${values}"></p>
   </div>
 </div>
+
+
+
+
 
 </body>
 <footer>
